@@ -1,6 +1,9 @@
 package pl.coderslab.warsztat5krkw04.app;
 
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.Filter;
 
 public class AppInitializer extends
         AbstractAnnotationConfigDispatcherServletInitializer {
@@ -12,4 +15,12 @@ public class AppInitializer extends
     @Override
     protected String[] getServletMappings() {
         return new String[]{"/"}; }
+
+    @Override
+    protected Filter[] getServletFilters() {
+        CharacterEncodingFilter characterEncodingFilter =
+                new CharacterEncodingFilter();
+        characterEncodingFilter.setEncoding("UTF-8");
+        return new Filter[] { characterEncodingFilter };
+    }
 }
