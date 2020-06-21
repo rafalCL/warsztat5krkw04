@@ -8,6 +8,9 @@ public class Book {
     private String publisher;
     private String type;
 
+    public Book() {
+    }
+
     public Book(long id, String isbn, String title, String author, String publisher, String type) {
         this.id = id;
         this.isbn = isbn;
@@ -16,7 +19,16 @@ public class Book {
         this.publisher = publisher;
         this.type = type;
     }
-
+    
+    public void merge(Book book){
+        this.id = book.id;
+        this.isbn = book.isbn;
+        this.title = book.title;
+        this.author = book.author;
+        this.publisher = book.publisher;
+        this.type = book.type;
+    }
+    
     public long getId() {
         return id;
     }
